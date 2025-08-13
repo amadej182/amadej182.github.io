@@ -7,6 +7,7 @@ def home(request):
         'Python', 'JavaScript', 'html5', 'css3', 'C', 'cplusplus',
         'Arduino', 'Raspberry Pi', 'NumPy', 'Pandas',
         'TensorFlow', 'Keras', 'Plotly', 'Matplotlib', 'PyTorch', 'sqlite', 'git', 'unity',
+        'amazonwebservices', 'Docker'
     ]
     return render(request, 'main.html', {'technologies': technologies})
 
