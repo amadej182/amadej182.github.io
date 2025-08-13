@@ -9,6 +9,7 @@
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 </head>
 <body>
+
 {% include "toolbar.html" %}
     <div class="container mt-5">
         <div class="row" style="border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
@@ -20,7 +21,7 @@
                     I am always eager to learn new tools and collaborate on challenging problems.
                 </p>
                 <p>
-                    <strong>Also, this is my CV in pdf format: </strong>
+                    <strong>Here you can find my CV: </strong>
                     <a href="{% static 'docs/amadej_slana_cv.pdf' %}" class="btn btn-warning btn-sm ms-3"  style="color:#fff;" target="_blank">Download it!</a>
                 </p>
             </div>
@@ -52,67 +53,117 @@
     </div>
     <div class="container mt-5">
         <div class="row mb-4">
+            <div class="col-md-6">
+            <!-- Carousel Start -->
+            <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel" style="height:340px;">
+            <div class="carousel-indicators">
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'jpeg/nssm/NSSM.png' %}" class="d-block w-100" alt="First slide" style="max-height: 320px; object-fit: contain;">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'jpeg/rezultati/graficniVmesnik/oneMLModel.png' %}" class="d-block w-100" alt="Fifth slide" style="max-height: 320px; object-fit: contain;">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'jpeg/rezultati/simulacija/thermal_surface.png' %}" class="d-block w-100" alt="Second slide" style="max-height: 320px; object-fit: contain;">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'jpeg/dinamika/3.png' %}" class="d-block w-100" alt="Third slide" style="max-height: 320px; object-fit: contain;">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'jpeg/onshape.png' %}" class="d-block w-100" alt="Fourth slide" style="max-height: 320px; object-fit: contain;">
+            </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+            </div>
+            <!-- Carousel End -->
+            </div>
+            <div class="col-md-6 d-flex flex-column align-items-end">
+            <h3>
+            <a href="{% url 'projects' %}" style="text-decoration: none; color: inherit; transition: color 0.3s;" onmouseover="this.style.color='#ff9800';" onmouseout="this.style.color='inherit';">Projects and skills</a>
+            </h3>
+            <ul>
+            <li>Websites and Web Applications</li>
+            <li>Data Analysis and Machine Learning</li>
+            <li>3D design and 3D printing</li>
+            <li>Embedded Systems</li>
+            </ul>
+            </div>
+        </div>
+        <div class="row mb-4">
             <div class="col-md-6 d-flex flex-column align-items-start">
-                <h3 style="text-decoration: none; color: black; transition: color 0.3s;" onmouseover="this.style.color='#ff9800';" onmouseout="this.style.color='black';">Programming Technologies</h3>
-                <ul>
-                    <li><strong>Programming languages:</strong> Python, JavaScript, HTML, C, C++</li>
-                    <li><strong>Web frameworks:</strong> Django, Flask</li>
-                    <li><strong>Database management:</strong> MySQL</li>
-                    <li><strong>Version control:</strong> Git</li>
-                </ul>
+            <h3 style="text-decoration: none; color: black; transition: color 0.3s;" onmouseover="this.style.color='#ff9800';" onmouseout="this.style.color='black';">Programming Technologies</h3>
+            <ul>
+                <li><strong>Programming languages:</strong> Python, JavaScript, HTML, C, C++</li>
+                <li><strong>Web frameworks:</strong> Django, Flask</li>
+                <li><strong>Machine Learning:</strong> Scikit-learn, TensorFlow, Keras, Pytorch</li>
+                <li><strong>Version control:</strong> Git</li>
+                <li><strong>Game Development:</strong> Unity, Pygame</li>
+            </ul>
             </div>
             <div class="col-md-6">
 
-                <!-- Carousel Start -->
+            <!-- Carousel Start -->
             <div class="d-flex flex-wrap justify-content-end gap-4">
-                {% for tech in technologies %}
-                    <div class="d-flex flex-column align-items-center tech-slide" style="min-width:90px;">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/{{ tech|lower|cut:' ' }}/{{ tech|lower|cut:' ' }}-original.svg"
-                             alt="{{ tech }}" style="width:70px;height:70px; transition: transform 0.3s;"
-                             onmouseover="this.style.transform='translateY(-10px)';"
-                             onmouseout="this.style.transform='translateY(0)';"
-                             onerror="this.onerror=null;this.src='https://img.icons8.com/ios-filled/50/000000/question-mark.png';">
-                    </div>
-                {% endfor %}
+            {% for tech in technologies %}
+                <div class="d-flex flex-column align-items-center tech-slide" style="min-width:90px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/{{ tech|lower|cut:' ' }}/{{ tech|lower|cut:' ' }}-original.svg"
+                     alt="{{ tech }}" style="width:70px;height:70px; transition: transform 0.3s;"
+                     onmouseover="this.style.transform='translateY(-10px)';"
+                     onmouseout="this.style.transform='translateY(0)';"
+                     onerror="this.onerror=null;this.src='https://img.icons8.com/ios-filled/50/000000/question-mark.png';">
+                </div>
+            {% endfor %}
             
             </div>
-                <!-- Carousel End -->
+            <!-- Carousel End -->
             </div>
         </div>
         <div class="row mb-4">
             <div class="col-md-6">
             <!-- Carousel Start -->
-            <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div id="designCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#designCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#designCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#designCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{% static 'jpeg/nssm/NSSM.png' %}" class="d-block w-100" alt="First slide">
+                    <div style="width:100%; height:340px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                        <img src="{% static 'jpeg/onshape.png' %}" style="max-height: 100%; max-width: 100%; object-fit: contain;" class="d-block" alt="SolidWorks Model">
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{% static 'jpeg/rezultati/graficniVmesnik/oneMLModel.png' %}" class="d-block w-100" alt="Fifth slide">
+                    <div style="width:100%; height:340px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                        <img src="{% static 'jpeg/bambu-lab-a1-1-k-700537-sl.png' %}" style="max-height: 100%; max-width: 100%; object-fit: contain;" class="d-block" alt="3D Printing Example">
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{% static 'jpeg/rezultati/simulacija/thermal_surface.png' %}" class="d-block w-100" alt="Second slide">
+                    <div style="width:100%; height:340px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                        <img src="{% static 'jpeg/sermoon.avif' %}" style="max-height: 100%; max-width: 100%; object-fit: contain;" class="d-block" alt="3D Printed Part">
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="{% static 'jpeg/dinamika/3.png' %}" class="d-block w-100" alt="Third slide">
                 </div>
-                <div class="carousel-item">
-                    <img src="{% static 'jpeg/onshape.png' %}" class="d-block w-100" alt="Fourth slide">
-                </div>
-
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#designCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#designCarousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
                 </button>
@@ -120,14 +171,13 @@
             <!-- Carousel End -->
             </div>
             <div class="col-md-6 d-flex flex-column align-items-end">
-            <h3>
-                <a href="{% url 'projects' %}" style="text-decoration: none; color: inherit; transition: color 0.3s;" onmouseover="this.style.color='#ff9800';" onmouseout="this.style.color='inherit';">Projects and skills</a>
-            </h3>
+            <h3>3D Design and Printing</h3>
             <ul>
-                <li>Websites and Web Applications</li>
-                <li>Data Analysis and Machine Learning</li>
-                <li>3D design and 3D printing</li>
-                <li>Embedded Systems</li>
+                <li>CAD modeling with SolidWorks, Onshape, and Fusion 360</li>
+                <li>3D printing using Creality and Bambulab printers</li>
+                <li>Prototyping and iterative design</li>
+                <li>Preparation of models for printing (slicing, supports, optimization)</li>
+                <li>Post-processing and assembly of printed parts</li>
             </ul>
             </div>
         </div>
@@ -172,10 +222,6 @@
         </div>  
         </div>
     </div>
-        <div class="container mt-5">
-            <h3 class="mb-3">Technologies</h3>
-           
-        </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
